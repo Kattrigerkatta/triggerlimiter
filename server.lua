@@ -16,6 +16,7 @@ Citizen.CreatThread(function()
       
       if hits[v.name][source].hits > v.limit then -- The number of times you can trigger the event before the player is banned. IMPORTANT: You have to put your ban trigger in the empty column, because I don't provide a ban system.
         -- ban-shit
+        print('The player: ' .. GetPlayerName(source) .. ' triggered the event ' .. v.name ' more than ' .. v.limit .. ' times') -- EXAMPLE
       end
     end)
     
