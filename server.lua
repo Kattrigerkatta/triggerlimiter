@@ -21,7 +21,7 @@ Citizen.CreateThread(function()
             end
             
             if (hits[v.name][source].time) + (v.clrepeat * 60000) >= GetGameTimer() then
-                hits[name][player].hits = 0
+                hits[v.name][source].hits = 0
                 hits[v.name][source].time = nil
             end
 
