@@ -15,10 +15,14 @@ Citizen.CreateThread(function()
             else
                 hits[v.name][source].hits = hits[v.name][source].hits + 1
             end
+          
+            if not hits[v.name][source].time then 
+                hits[v.name][source].time = GetGameTimer()
+            end
             
-            if not hits[v.name][source].started then
-                hits[v.name][source].started = true
-                startTimer(v.name, source, v.clrepeat)
+            if (hits[v.name][source].time) + (v.clrepeat * 60000) >= GetGameTimer() then
+                hits[name][player].hits = 0
+                hits[v.name][source].time = nil
             end
 
             if hits[v.name][source].hits > v.limit then
@@ -28,12 +32,3 @@ Citizen.CreateThread(function()
         end)
     end
 end)
-
-function startTimer(name, player, rp)
-    Citizen.CreateThread(function()
-        while true do
-            Citizen.Wait(rp*60000)
-            hits[name][player].hits = 0
-        end
-    end)
-end
