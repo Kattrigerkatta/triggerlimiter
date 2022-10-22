@@ -26,7 +26,7 @@ Citizen.CreateThread(function()
             end
 
             if hits[v.name][source].hits > v.limit then
-                print("" ..GetPlayerName(source).. " triggerte zu oft das Event: " ..v.name)
+                print(("%s has triggered the event %s too often"):format(GetPlayerName(source), v.name))
                 --Ban Event
             end
         end)
